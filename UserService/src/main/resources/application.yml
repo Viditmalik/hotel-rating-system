@@ -2,10 +2,13 @@ server:
   port: 8081
 
 spring:
+  application:
+    name: USERSERVICE
+
   datasource:
-    url: jdbc:mysql://localhost:3306/microservices
-    username: root
-    password: root123
+    url: jdbc:mysql://hotel-rating-db.cmfgoy2ca395.us-east-1.rds.amazonaws.com:3306/userdb
+    username: admin
+    password: viditmalik54321
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -15,24 +18,23 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  application:
-    name: USERSERVICE
+
   config:
-    import: configserver:http://localhost:8085
+   import: optional:configserver:http://config-server:8085
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: https://integrator-8250368.okta.com/oauth2/default
 
-#eureka:
-#  instance:
-#    prefer-ip-address: true
-#  client:
-#    fetch-registry: true
-#    register-with-eureka: true
-#    service-url:
-#      defaultZone : http://localhost:8761/eureka
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone : http://service-registry:8761/eureka
 management:
   health:
     circuitbreakers:

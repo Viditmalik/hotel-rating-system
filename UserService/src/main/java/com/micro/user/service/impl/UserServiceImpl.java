@@ -92,7 +92,7 @@ public class UserServiceImpl implements UserService {
         return userDto;
     }
 
-    // ================== FALLBACK ==================
+
     public UserDto ratingHotelFallback(String userId, Exception ex) {
 
         logger.error("Fallback triggered for userId:{} due to:{}", userId, ex.getMessage());

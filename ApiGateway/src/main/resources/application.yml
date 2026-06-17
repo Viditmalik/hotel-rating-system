@@ -7,9 +7,6 @@ spring:
 
   cloud:
     gateway:
-      default-filters:
-        - TokenRelay
-
       routes:
         - id: USERSERVICE
           uri: lb://USERSERVICE
@@ -28,23 +25,23 @@ spring:
 
   security:
     oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: https://integrator-8250368.okta.com/oauth2/default
       client:
         registration:
           okta:
             client-id: 0oa12crqnr3QU6bTN698
             client-secret: Z4Y8YHbVQzdlgEhSp7grCivXQ4drJ9aDDycE3thC_j7TTp1TJCauYk2u12IFIbLx
             scope: openid, profile, email, offline_access
+            authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-
 
         provider:
           okta:
             issuer-uri: https://integrator-8250368.okta.com/oauth2/default
 
+      resourceserver:
+        jwt:
+          issuer-uri: https://integrator-8250368.okta.com/oauth2/default
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://service-registry:8761/eureka
