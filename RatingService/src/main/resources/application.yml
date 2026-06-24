@@ -6,7 +6,7 @@ spring:
     name: RATINGSERVICE  
       ✅ (top level)
   datasource:
-    url: jdbc:mysql://hotel-rating-db.cmfgoy2ca395.us-east-1.rds.amazonaws.com:3306/ratingdb
+    url: jdbc:mysql://hotel-rating-db.cmfgoy2ca395.us-east-1.rds.amazonaws.com:3306/ratingdb?useSSL=false&allowPublicKeyRetrieval=true
     username: admin
     password: viditmalik54321
     driver-class-name: com.mysql.cj.jdbc.Driver

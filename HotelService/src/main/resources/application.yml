@@ -2,8 +2,10 @@ server:
   port: 8082
 
 spring:
+  application:
+    name: HOTELSERVICE
   datasource:
-    url: jdbc:mysql://hotel-rating-db.cmfgoy2ca395.us-east-1.rds.amazonaws.com:3306/hoteldb
+    url: jdbc:mysql://hotel-rating-db.cmfgoy2ca395.us-east-1.rds.amazonaws.com:3306/hoteldb?useSSL=false&allowPublicKeyRetrieval=true
     username: admin
     password: viditmalik54321
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -12,8 +14,12 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-    application:
-      name: HOTELSERVICE
+    data:
+      redis:
+        host: redis
+        port: 6379
+
+
     eureka:
       instance:
         prefer-ip-address: true
@@ -22,10 +28,14 @@ spring:
         register-with-eureka: true
         service-url:
           defaultZone: http://service-registry:8761/eureka
-  config:
-    import: optional:configserver:http://config-server:8085
+
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: https://integrator-8250368.okta.com/oauth2/default
+
+logging:
+  level:
+    org.springframework.cache: TRACE
+    org.springframework.data.redis.cache: TRACE

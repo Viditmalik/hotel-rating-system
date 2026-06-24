@@ -6,6 +6,7 @@ import com.micro.hotel.exceptions.ResourceNotFoundException;
 import com.micro.hotel.repository.HotelRepository;
 import com.micro.hotel.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,9 +42,12 @@ public class HotelServiceImpl implements HotelService {
                 .toList();
     }
 
-    // ================= GET BY ID =================
+
     @Override
+    @Cacheable(value = "hotelsCache", key = "#id")
     public HotelDto getHotelById(String id) {
+
+        System.out.println("DB CAll for hotel id: "+ id);
 
         Hotel hotel = hotelRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Hotel not found"));

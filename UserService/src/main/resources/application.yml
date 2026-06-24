@@ -19,8 +19,7 @@ spring:
       hibernate:
         format_sql: true
 
-  config:
-   import: optional:configserver:http://config-server:8085
+
   security:
     oauth2:
       resourceserver:

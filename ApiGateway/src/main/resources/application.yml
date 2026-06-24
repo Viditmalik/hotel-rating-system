@@ -5,6 +5,8 @@ spring:
   application:
     name: APIGATEWAY
 
+  config:
+    import=optional:configserver:http://config-server:8085
   cloud:
     gateway:
       routes:

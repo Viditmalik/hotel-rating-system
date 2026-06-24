@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-
   service-registry:
     image: viditmalik55/service-registry
     ports:
       - "8761:8761"
+    restart: always
 
   config-server:
     image: viditmalik55/config-server
@@ -13,17 +13,16 @@ services:
       - "8085:8085"
     depends_on:
       - service-registry
-
-
+    restart: always
 
   user-service:
     image: viditmalik55/user-service
     ports:
       - "8081:8081"
     depends_on:
-
       - config-server
       - service-registry
+      - redis
     restart: always
 
   rating-service:
@@ -31,19 +30,21 @@ services:
     ports:
       - "8083:8083"
     depends_on:
-
       - config-server
       - service-registry
     restart: always
 
   hotel-service:
+    build:
+      context: ./HotelService
+      dockerfile: Dockerfile
     image: viditmalik55/hotel-service
     ports:
       - "8082:8082"
     depends_on:
-
       - config-server
       - service-registry
+      - redis
     restart: always
 
   api-gateway:
@@ -53,6 +54,13 @@ services:
     depends_on:
       - config-server
       - service-registry
+    restart: always
 
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: always
 volumes:
   mysql-data:
