@@ -26,6 +26,9 @@ services:
     restart: always
 
   rating-service:
+    build:
+      context: ./RatingService
+      dockerfile: Dockerfile
     image: viditmalik55/rating-service
     ports:
       - "8083:8083"

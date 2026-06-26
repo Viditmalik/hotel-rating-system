@@ -2,6 +2,8 @@ package com.micro.rating.impl;
 
 import com.micro.rating.dto.RatingDto;
 import com.micro.rating.entity.Rating;
+import com.micro.rating.events.RatingCreatedEvent;
+import com.micro.rating.kafka.KafkaProducerService;
 import com.micro.rating.repository.RatingRepository;
 import com.micro.rating.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ public class RatingServiceImpl implements RatingService {
     @Autowired
     private RatingRepository ratingRepository;
 
+    @Autowired
+    private KafkaProducerService kafkaProducerService;
+
     // ================= CREATE =================
     @Override
     public RatingDto createRating(RatingDto ratingDto) {
@@ -27,7 +32,19 @@ public class RatingServiceImpl implements RatingService {
 
         Rating saved = ratingRepository.save(rating);
 
+        RatingCreatedEvent event = new RatingCreatedEvent();
+
+        event.setRatingId(saved.getRatingId());
+        event.setUserId(saved.getUserId());
+        event.setHotelId(saved.getHotelId());
+        event.setRating(saved.getRating());
+        event.setFeedback(saved.getFeedback());
+
+        kafkaProducerService.publishRatingCreatedEvent(event);
+
         return mapToDto(saved);
+
+
     }
 
     // ================= GET ALL =================

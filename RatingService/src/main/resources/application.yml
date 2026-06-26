@@ -22,6 +22,19 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: https://integrator-8250368.okta.com/oauth2/default
+  kafka:
+
+    bootstrap-servers: kafka:29092
+
+    producer:
+
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+      properties:
+
+        spring.json.add.type.headers: false
 
 eureka:
   instance:
