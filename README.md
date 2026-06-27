@@ -11,7 +11,7 @@ This project demonstrates secure REST APIs, distributed system design, centraliz
 Complete architecture of the Hotel Rating System.
 
 <p align="center">
-  <img src="images/architecture.png" alt="Hotel Rating System Architecture" width="100%">
+  <img src="images/architecture.jpeg" alt="Hotel Rating System Architecture" width="100%">
 </p>
 
 ⸻
