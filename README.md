@@ -1,12 +1,12 @@
-🏨 Hotel Rating System – Microservices Architecture
+# 🏨 Hotel Rating System – Production Ready Microservices Architecture
 
-A production-ready Hotel Rating System built using Spring Boot, Spring Cloud, Docker, Redis, Apache Kafka, and AWS following Microservices Architecture principles.
+A production-ready Hotel Rating System built using Spring Boot, Spring Cloud, Docker, Kubernetes, Redis, Apache Kafka, and AWS following Microservices Architecture principles.
 
-This project demonstrates secure REST APIs, distributed system design, centralized configuration, service discovery, inter-service communication, event-driven architecture, caching, containerization, and cloud deployment.
+This project demonstrates secure REST APIs, distributed system design, centralized configuration, service discovery, inter-service communication, event-driven architecture, caching, containerization, Kubernetes orchestration, and cloud deployment.
 
-⸻
+---
 
-📌 Architecture Diagram
+# 📌 Architecture Diagram
 
 Complete architecture of the Hotel Rating System.
 
@@ -14,153 +14,163 @@ Complete architecture of the Hotel Rating System.
   <img src="images/architecture.jpeg" alt="Hotel Rating System Architecture" width="100%">
 </p>
 
-⸻
+---
 
-🚀 Features
+# 🚀 Features
 
-* Microservices Architecture
-* API Gateway
-* Eureka Service Discovery
-* Spring Cloud Config Server
-* OpenFeign Client Communication
-* DTO-based Communication
-* OAuth2 Authentication (Okta)
-* JWT Authentication
-* Token Relay
-* Resilience4j
-    * Circuit Breaker
-    * Retry
-    * Rate Limiter
-* Redis Caching
-* Apache Kafka Event-Driven Communication
-* Docker Containerization
-* Docker Compose Orchestration
-* AWS EC2 Deployment
-* AWS IAM
-* AWS VPC
-* AWS S3
-* AWS CloudWatch
-* MySQL Database
+- Microservices Architecture
+- API Gateway
+- Eureka Service Discovery
+- Spring Cloud Config Server
+- OpenFeign Client Communication
+- DTO-based Communication
+- OAuth2 Authentication (Okta)
+- JWT Authentication
+- Token Relay
+- Resilience4j
+  - Circuit Breaker
+  - Retry
+  - Rate Limiter
+- Redis Caching
+- Apache Kafka Event-Driven Communication
+- Docker Containerization
+- Docker Compose Orchestration
+- Kubernetes Deployment
+- Kubernetes Services
+- NodePort Services
+- AWS EC2 Deployment
+- Amazon RDS
+- AWS IAM
+- AWS VPC
+- AWS S3
+- AWS CloudWatch
+- MySQL Database
 
-⸻
+---
 
-🛠 Tech Stack
+# 🛠 Tech Stack
 
-Backend
+## Backend
 
-* Java 17
-* Spring Boot
-* Spring Cloud
-* Spring Security
-* Spring Data JPA
-* Hibernate
-* Maven
+- Java 17
+- Spring Boot
+- Spring Cloud
+- Spring Security
+- Spring Data JPA
+- Hibernate
+- Maven
 
-Microservices
+## Microservices
 
-* API Gateway
-* Eureka Server
-* Config Server
-* OpenFeign
-* Resilience4j
+- API Gateway
+- Eureka Server
+- Config Server
+- OpenFeign
+- Resilience4j
 
-Security
+## Security
 
-* OAuth2
-* Okta
-* JWT Authentication
-* Token Relay
+- OAuth2
+- Okta
+- JWT Authentication
+- Token Relay
 
-Database & Cache
+## Database & Cache
 
-* MySQL
-* Redis
+- MySQL
+- Amazon RDS
+- Redis
 
-Messaging
+## Messaging
 
-* Apache Kafka
+- Apache Kafka
 
-DevOps & Cloud
+## DevOps & Cloud
 
-* Docker
-* Docker Compose
-* AWS EC2
-* AWS IAM
-* AWS VPC
-* AWS S3
-* AWS CloudWatch
+- Docker
+- Docker Compose
+- Kubernetes
+- Minikube
+- kubectl
+- AWS EC2
+- AWS IAM
+- AWS VPC
+- AWS S3
+- AWS CloudWatch
 
-⸻
+---
 
-🧩 Microservices
+# 🧩 Microservices
 
-User Service
+## User Service
 
-Responsible for:
+Responsible for
 
-* User CRUD Operations
-* OAuth2 Resource Server
-* Feign Client Communication
-* Resilience4j
+- User CRUD Operations
+- OAuth2 Resource Server
+- OpenFeign Client Communication
+- Resilience4j
+- Redis Integration
 
-⸻
+---
 
-Hotel Service
+## Hotel Service
 
-Responsible for:
+Responsible for
 
-* Hotel CRUD Operations
-* Redis Caching
-* Kafka Consumer
-* OAuth2 Resource Server
-* Feign Client
+- Hotel CRUD Operations
+- Redis Caching
+- Kafka Consumer
+- OAuth2 Resource Server
+- OpenFeign Client
 
-⸻
+---
 
-Rating Service
+## Rating Service
 
-Responsible for:
+Responsible for
 
-* Rating CRUD Operations
-* Kafka Producer
-* OAuth2 Resource Server
-* Feign Client
+- Rating CRUD Operations
+- Kafka Producer
+- OAuth2 Resource Server
+- OpenFeign Client
 
-⸻
+---
 
-Infrastructure Services
+## Infrastructure Services
 
-* API Gateway
-* Eureka Service Registry
-* Config Server
+- API Gateway
+- Eureka Service Registry
+- Config Server
 
-⸻
+---
 
-🔐 Security
+# 🔐 Security
 
-* OAuth2 Authentication using Okta
-* JWT Validation
-* API Gateway Security
-* Token Relay Across Services
-* OAuth2 Resource Server
+- OAuth2 Authentication using Okta
+- JWT Validation
+- API Gateway Security
+- Token Relay Across Services
+- OAuth2 Resource Server
 
-⸻
+---
 
-⚡ Redis Implementation
+# ⚡ Redis Implementation
 
 Redis is used to cache hotel information.
 
-Benefits
+## Benefits
 
-* Faster API Response
-* Reduced Database Load
-* Improved Performance
-* Better Scalability
+- Faster API Response
+- Reduced Database Load
+- Improved Performance
+- Better Scalability
 
-⸻
+---
 
-📩 Kafka Event Flow
+# 📩 Kafka Event Flow
 
+```
 Client
    │
    ▼
@@ -185,48 +195,76 @@ Hotel Service Consumer
    │
    ▼
 Processes Rating Event
+```
 
-⸻
+---
 
-🐳 Docker Implementation
+# 🐳 Docker Implementation
 
 Every microservice is containerized using Docker.
 
-Docker Compose manages:
+Docker Compose manages
 
-* API Gateway
-* Eureka Server
-* Config Server
-* User Service
-* Hotel Service
-* Rating Service
-* MySQL
-* Redis
-* Kafka
-* Zookeeper
+- API Gateway
+- Eureka Server
+- Config Server
+- User Service
+- Hotel Service
+- Rating Service
+- MySQL
+- Redis
+- Kafka
+- Zookeeper
 
-⸻
+---
 
-☁️ AWS Deployment
+# ☸️ Kubernetes Deployment
 
-The application has been deployed on AWS.
+The complete Hotel Rating System has been deployed on Kubernetes using Minikube.
 
-AWS services used:
+Each microservice runs inside its own Pod and communicates using Kubernetes Services.
 
-* EC2
-* IAM
-* VPC
-* S3
-* CloudWatch
+## Kubernetes Components Used
 
-⸻
+- Deployments
+- Pods
+- Services
+- NodePort
+- ReplicaSets
+- Labels & Selectors
+- kubectl
+- Minikube
 
-📂 Project Structure
+## Deployed Services
 
+- API Gateway
+- Eureka Server
+- Config Server
+- User Service
+- Hotel Service
+- Rating Service
+
+---
+
+# ☁️ AWS Deployment
+
+The application has been deployed on AWS using production-style cloud infrastructure.
+
+## AWS Services Used
+
+- Amazon EC2
+- Amazon RDS (MySQL)
+- AWS IAM
+- AWS VPC
+- AWS S3
+- AWS CloudWatch
+
+---
+
+# 📂 Project Structure
+
+```
 Hotel_Rating_System
-│
-├── .github/
-├── .idea/
 │
 ├── ApiGateway/
 ├── ConfigServer/
@@ -235,82 +273,111 @@ Hotel_Rating_System
 ├── ServiceRegistry/
 ├── UserService/
 │
+├── k8s/
+│   └── manifests/
+│       ├── service-registry-deployment.yaml
+│       ├── service-registry-service.yaml
+│       ├── config-server-deployment.yaml
+│       ├── config-server-service.yaml
+│       ├── user-service-deployment.yaml
+│       ├── user-service-service.yaml
+│       ├── hotel-service-deployment.yaml
+│       ├── hotel-service-service.yaml
+│       ├── rating-service-deployment.yaml
+│       ├── rating-service-service.yaml
+│       ├── api-gateway-deployment.yaml
+│       └── api-gateway-service.yaml
+│
 ├── docker-compose.yml
 ├── docker-compose-kafka.yml
 ├── README.md
 │
 └── images/
-    └── architecture.png
+    └── architecture.jpeg
+```
 
-⸻
+---
 
-▶️ Demo Video
+# ▶️ Demo Video
 
 🎥 Project Walkthrough
 
-The demonstration includes:
+The demonstration includes
 
-* Microservices Architecture
-* User Service
-* Hotel Service
-* Rating Service
-* API Gateway
-* Eureka Service Discovery
-* Config Server
-* OAuth2 Authentication
-* OpenFeign Communication
-* Resilience4j
-* REST APIs
+- Microservices Architecture
+- API Gateway
+- Eureka Service Discovery
+- Config Server
+- User Service
+- Hotel Service
+- Rating Service
+- OAuth2 Authentication
+- OpenFeign Communication
+- Resilience4j
 
 📹 Demo Video
 
 https://drive.google.com/file/d/1aDHi9iDGALD88H8rpDgz6-1b4SAiInAn/view
 
-Note: This video was recorded before integrating Redis Caching, Apache Kafka, Docker Compose enhancements, and AWS deployment improvements. The latest implementation available in this repository includes all of these features.
+**Note**
 
-⸻
+The demo video was recorded before integrating Redis, Apache Kafka, Docker Compose improvements, Kubernetes deployment, and AWS cloud deployment.
 
-📬 API Endpoints
+The latest implementation available in this repository includes all these enhancements.
 
-User Service
+---
 
+# 📬 API Endpoints
+
+## User Service
+
+```
 /users/**
+```
 
-Hotel Service
+## Hotel Service
 
+```
 /hotels/**
+```
 
-Rating Service
+## Rating Service
 
+```
 /ratings/**
+```
 
-⸻
+---
 
-👨‍💻 Author
+# 👨‍💻 Author
 
-Vidit Malik
+## Vidit Malik
 
 Java Backend Developer
 
-Skills
+### Skills
 
-* Java
-* Spring Boot
-* Spring Cloud
-* Spring Security
-* OpenFeign
-* Resilience4j
-* Docker
-* Docker Compose
-* Redis
-* Apache Kafka
-* AWS
-* MySQL
+- Java
+- Spring Boot
+- Spring Cloud
+- Spring Security
+- Spring Data JPA
+- Hibernate
+- OpenFeign
+- Resilience4j
+- Docker
+- Docker Compose
+- Kubernetes
+- Minikube
+- Redis
+- Apache Kafka
+- AWS
+- MySQL
 
 GitHub
 
 https://github.com/Viditmalik
 
-⸻
+---
 
 ⭐ If you found this project helpful, please consider giving it a Star.
