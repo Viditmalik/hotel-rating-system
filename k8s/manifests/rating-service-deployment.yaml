@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: rating-service
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: rating-service
+
+  template:
+    metadata:
+      labels:
+        app: rating-service
+
+    spec:
+      containers:
+        - name: rating-service
+
+          image: viditmalik55/rating-service:latest
+
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - containerPort: 8083
+
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: k8s
+
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: http://service-registry:8761/eureka/
+
+            - name: SPRING_CONFIG_IMPORT
+              value: optional:configserver:http://config-server:8085
